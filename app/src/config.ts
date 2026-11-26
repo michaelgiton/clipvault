@@ -16,13 +16,13 @@ export const QUSDC_ADDRESS =
   '0x3F43DA82eC9A4f5285F10FaF1F26EcA7319E5DA5' as const;
 
 /**
- * ClipVaultEscrow address, set at deploy time. Build with
- * VITE_VAULT_ADDRESS=<address> once the contract is deployed; until then the
- * app runs in "not deployed yet" mode — browsing works against the contract
- * address only after deploy, and all writes are disabled with a clear notice.
+ * ClipVaultEscrow address. Deployed on QIE Mainnet (chain 1990) and verified
+ * live: token() returns QUSDC, feeRecipient() is the platform wallet,
+ * FEE_BPS() is 200. Can still be overridden with VITE_VAULT_ADDRESS at build
+ * time for local testing against another deployment.
  */
 export const VAULT_ADDRESS = (import.meta.env.VITE_VAULT_ADDRESS as string | undefined) ??
-  '0x0000000000000000000000000000000000000000';
+  '0x729C77e8d721be33371491CD6F0f502D31187e05';
 export const VAULT_DEPLOYED =
   VAULT_ADDRESS.toLowerCase() !== '0x0000000000000000000000000000000000000000';
 
